@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 
+
 Created on Wed Oct 11 18:47:52 2017
 
 @author: alexz
@@ -17,7 +18,7 @@ Created on Wed Oct 11 18:47:52 2017
 import getpass
 from InvestopediaApi import ita
 
-password = getpass.getpass(prompt = 'Investopedia account password:', stream = '/dev/null')
+password = getpass.getpass(prompt = 'Investopedia account password:')
 print('Logging in.....')
 client = ita.Account("photon318@gmail.com", password)
 
