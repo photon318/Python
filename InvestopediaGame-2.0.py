@@ -13,10 +13,20 @@ Created on Wed Oct 11 18:47:52 2017
 #    In scales must be ratio and scale level. Rest is caclulated based on allocations in IA
 # 2. Implement importing of exit siganls from base application
 
+
+
 #import sys
 #import msvcrt
 import getpass
+import pandas as pd
 from InvestopediaApi import ita
+
+
+
+#long_entries = pd.read_csv('entry_long.csv')
+#X = dataset.iloc[:, :-1].values
+#y = dataset.iloc[:, 3].values
+
 
 password = getpass.getpass(prompt = 'Investopedia account password:')
 print('Logging in.....')
@@ -68,7 +78,7 @@ for bought in bought_securities:
     
     
     
-print("{:-<100}".format(""))
+print("{:-<79}".format(""))
 print("Exp.C: {:.2f}  Exp.G: {:.2f} Delta: {:.2f}".format(exposure_at_cost, exposure_gross, exposure_gross-exposure_at_cost))
 print()
 print("Total PNL: {:.2f}  Win: {:.2f} Loss: {:.2f}".format(total, win, loss))
