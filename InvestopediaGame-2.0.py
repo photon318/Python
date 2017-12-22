@@ -6,7 +6,7 @@
 Created on Wed Oct 11 18:47:52 2017
 
 @author: alexz
-"""
+"""кщщ
 
 # TO DO: 
 # 1. Implelemt importing of scales form base aplication and applying them to Investopedia account (IA).
@@ -40,8 +40,9 @@ print("{:<20} {:> 15,.2f},$".format("Cash:", status.cash))
 print("{:<20} {:> 15,.2f},%".format("Annual Return:", status.annual_return))
 
 
+
 print()
-print("Portfolio")
+print("Long Portfolio")
 
 portfolio = client.get_current_securities()
 
