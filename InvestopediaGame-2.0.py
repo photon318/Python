@@ -15,6 +15,8 @@ Created on Wed Oct 11 18:47:52 2017
 import getpass
 import pandas as pd
 from InvestopediaApi import ita
+from pandas_datareader import data
+from datetime import datetime
 
 class PortfolioMetrics:
     total = 0;
@@ -42,6 +44,8 @@ def print_shares_header ()   :
 
 def print_portfolio_section (securities, metrics, isShort) :
     for sec in securities:
+        if sec.symbol == "BTI1":
+            continue
         if isShort:
             piece  = (sec.purchase_price-sec.current_price)*sec.quantity
         else:
@@ -53,11 +57,16 @@ def print_portfolio_section (securities, metrics, isShort) :
             metrics.win += piece
         else:
             metrics.loss += piece
-        print("{:<10} {:<50} {:>6,.0f} {:>10,.2f}".format(
+            
+        ext_price = data.DataReader(sec.symbol,  "morningstar", datetime(2018,2,6), datetime(2018,2,6)).iloc[:1,0].values
+        
+        print("{:<10} {:<50} {:>6,.0f} {:>10,.2f} {:>10,.2f}{:>10,.2f}".format(
                 sec.symbol
                 ,sec.description
                 ,sec.quantity
-                ,piece))
+                ,piece
+                ,sec.current_price 
+                ,float(ext_price)))
     print()
     return;
 
@@ -79,6 +88,7 @@ def print_statistics(PF, status) :
 #long_entries = pd.read_csv('entry_long.csv')
 #X = dataset.iloc[:, :-1].values
 #y = dataset.iloc[:, 3].values
+
 
 password = getpass.getpass(prompt = 'Investopedia account password:')
 print('Logging in.....')
