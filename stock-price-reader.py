@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 """
 Created on Wed Feb  7 12:37:37 2018
-
 @author: alexz
 """
 
@@ -12,17 +11,18 @@ from datetime import datetime, timedelta
 
 
 stocks = pd.read_csv('get_last_prices.csv')
+dataprovider = 'morningstar'
 
 EODDate = datetime.now().date() - timedelta(days=1)
 print("Requesting EOD close for {}".format(EODDate))
 print()
+print("{:<10} {:>6}".format("Ticker", "Close"));
+print("{:-<10} {:->6}".format("", ""))
+
 
 for index, stock in stocks.iterrows():
     ticker = stock['Symbol']
-    bar = data.DataReader(ticker,  "morningstar", EODDate, EODDate)
+    bar = data.DataReader(ticker,  dataprovider, EODDate, EODDate)
     close = bar.loc[EODDate.strftime('%Y-%m-%d'):,'Close'].values
 #    close = bar.iloc[:1,0].values
     print("{:<10} {:>6.2f}".format(ticker, float(close)));
-    
-
-    
