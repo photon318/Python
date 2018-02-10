@@ -9,6 +9,7 @@ Created on Wed Oct 11 18:47:52 2017
 # 1. Implelemt importing of scales form base aplication and applying them to Investopedia account (IA).
 #    In scales must be ratio and scale level. Rest is caclulated based on allocations in IA
 # 2. Implement importing of exit siganls from base application
+#3. Use adju prices for % chg
 
 #import sys
 #import msvcrt
@@ -16,7 +17,7 @@ import getpass
 import pandas as pd
 from InvestopediaApi import ita
 from pandas_datareader import data
-from datetime import datetime
+from datetime import datetime, timedelta
 
 class PortfolioMetrics:
     total = 0;
@@ -36,13 +37,14 @@ def print_status ( status ):
     return;
     
 def print_shares_header ()   :
-    table_format = "{:<10} {:<50} {:>6} {:>10}"
-    print(table_format.format("Symbol", "Description", "Shares", "Total PNL"))
-    table_uformat = "{:-<10} {:-<50} {:->6} {:->10}"
-    print(table_uformat.format("", "", "", ""))
+    table_format = "{:<10} {:<50} {:>6} {:>10} {:>10}"
+    print(table_format.format("Symbol", "Description", "Shares", "Total PNL", "DayChg %"))
+    table_uformat = "{:-<10} {:-<50} {:->6} {:->10} {:->10}"
+    print(table_uformat.format("", "", "", "", ""))
     return;
 
 def print_portfolio_section (securities, metrics, isShort) :
+    days_offests = (3,3,2,2,2,2,3)
     for sec in securities:
         if sec.symbol == "BTI1":
             continue
@@ -57,16 +59,19 @@ def print_portfolio_section (securities, metrics, isShort) :
             metrics.win += piece
         else:
             metrics.loss += piece
-            
-        ext_price = data.DataReader(sec.symbol,  "morningstar", datetime(2018,2,6), datetime(2018,2,6)).iloc[:1,0].values
+    
+        prev_close_date = datetime.now().date() - timedelta(days=days_offests[datetime.now().date().weekday()])
+        prev_close = data.DataReader(sec.symbol,  "morningstar", prev_close_date, prev_close_date).loc[prev_close_date.strftime('%Y-%m-%d'):,'Close'].values
         
-        print("{:<10} {:<50} {:>6,.0f} {:>10,.2f} {:>10,.2f}{:>10,.2f}".format(
+        day_chg =  (sec.current_price / prev_close -1 ) * 100
+        print("{:<10} {:<50} {:>6,.0f} {:>10,.2f} {:>10,.2f}".format(
                 sec.symbol
                 ,sec.description
                 ,sec.quantity
                 ,piece
-                ,sec.current_price 
-                ,float(ext_price)))
+#                ,sec.current_price 
+#                ,float(prev_close)
+                ,float(day_chg)))
     print()
     return;
 
@@ -85,9 +90,6 @@ def print_statistics(PF, status) :
     print("M2:                 {:.2f}".format(status.account_val-status.cash))
     return;
 
-#long_entries = pd.read_csv('entry_long.csv')
-#X = dataset.iloc[:, :-1].values
-#y = dataset.iloc[:, 3].values
 
 
 password = getpass.getpass(prompt = 'Investopedia account password:')
@@ -133,6 +135,34 @@ for open_trade in open_trades:
 #client.trade("GOOG", ita.Action.sell, 10)
 #Shorting 10 shares of Google:
 #
-#client.trade("GOOG", ita.Action.short, 10)
+#    class Action(Enum):
+#    buy = 1
+#    sell = 2
+#    short = 3
+#    cover = 4
+#
+#
+#class Duration(Enum):
+#    day_order = 1
+#    good_cancel = 2
+
+#cent.trade("GOOG", ita.Action.short, 10)
 #Buying 10 shares of Google with a limit order at $500
-#client.trade("GOOG", ita.Action.buy, 10, "Limit", 500)
+#client.trade("GOOG", ita.Action.SellShort, 10, "Limit", 500)
+#
+#short_entries = pd.read_csv('short_entries.csv')
+##X = dataset.iloc[:, :-1].values
+##y = dataset.iloc[:, 3].values
+#for index, short_order in short_entries.iterrows():
+#    symbol = short_order['Symbol']
+#    price = short_order['Price']
+#    size = short_order['Size']
+#    coef = short_order['Coef']
+#    print('Placing trade for', symbol)
+#    client.trade(symbol, ita.Action.short, size, "Limit", price)
+
+    
+    
+    
+    
+    
