@@ -46,7 +46,7 @@ def print_shares_header ()   :
 def print_portfolio_section (securities, metrics, isShort) :
     days_offests = (3,3,2,2,2,2,3)
     for sec in securities:
-        if sec.symbol == "BTI1":
+        if sec.symbol == "BTI1": #skipping frozed renamed symbol
             continue
         if isShort:
             piece  = (sec.purchase_price-sec.current_price)*sec.quantity
@@ -63,7 +63,13 @@ def print_portfolio_section (securities, metrics, isShort) :
         prev_close_date = datetime.now().date() - timedelta(days=days_offests[datetime.now().date().weekday()])
         prev_close = data.DataReader(sec.symbol,  "morningstar", prev_close_date, prev_close_date).loc[prev_close_date.strftime('%Y-%m-%d'):,'Close'].values
         
-        day_chg =  (sec.current_price / prev_close -1 ) * 100
+        
+        day_chg = ( prev_close / sec.current_price -1 ) * 100  if isShort else (sec.current_price / prev_close -1 )  * 100
+#        if isShort:
+#            day_chg = ( prev_close / sec.current_price -1 ) * 100 
+#        else:
+#            day_chg = (sec.current_price / prev_close -1 )  * 100
+        
         print("{:<10} {:<50} {:>6,.0f} {:>10,.2f} {:>10,.2f}".format(
                 sec.symbol
                 ,sec.description
