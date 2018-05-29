@@ -8,7 +8,8 @@ Created on Wed Oct 11 18:47:52 2017
 #import sys
 #import msvcrt
 import getpass
-import pandas as pd
+#import pandas as pd
+import timeboard.calendars.US  as US
 from InvestopediaApi import ita
 from pandas_datareader import data
 from datetime import datetime, timedelta
@@ -38,7 +39,8 @@ def print_shares_header ()   :
     return;
 
 def print_portfolio_section (securities, metrics, isShort) :
-    days_offests = (3,3,2,2,2,2,3)
+    days_offsets = (3,3,2,2,2,2,3)
+    c = US.Weekly8x5
     for sec in securities:
         if sec.symbol == "BTI1": #skipping frozed renamed symbol
             continue
@@ -53,12 +55,26 @@ def print_portfolio_section (securities, metrics, isShort) :
             metrics.win += piece
         else:
             metrics.loss += piece
+
+        prev_close_date = datetime.now().date() - timedelta(days=days_offsets[datetime.now().date().weekday()])
     
-        prev_close_date = datetime.now().date() - timedelta(days=days_offests[datetime.now().date().weekday()])
-        prev_close = data.DataReader(sec.symbol,  "morningstar", prev_close_date, prev_close_date).loc[prev_close_date.strftime('%Y-%m-%d'):,'Close'].values
+        c(prev_close_date)[ws_ref == prev_close_date]
+        
+        c[c['ws_ref'] == prev_close_date]
         
         
-        day_chg = ( prev_close / sec.current_price -1 ) * 100  if isShort else (sec.current_price / prev_close -1 )  * 100
+        try:
+            prev_close = data.DataReader(sec.symbol,  "morningstar", prev_close_date, prev_close_date).loc[prev_close_date.strftime('%Y-%m-%d'):,'Close'].values
+        except Exception:
+            prev_close = 0
+
+
+        if prev_close != 0 :
+            day_chg = ( prev_close / sec.current_price -1 ) * 100  if isShort else (sec.current_price / prev_close -1 )  * 100
+        else:
+            day_chg = 0
+        
+        
 #        if isShort:
 #            day_chg = ( prev_close / sec.current_price -1 ) * 100 
 #        else:
@@ -69,8 +85,6 @@ def print_portfolio_section (securities, metrics, isShort) :
                 ,sec.description
                 ,sec.quantity
                 ,piece
-#                ,sec.current_price 
-#                ,float(prev_close)
                 ,float(day_chg)))
     print()
     return;
@@ -113,94 +127,4 @@ print_shares_header()
 print_portfolio_section(portfolio.shorted, PF, isShort=True)
 print_statistics(PF, PF_state)
 
-open_trades = client.get_open_trades()
-for open_trade in open_trades:
-    print("{0} {1} {2} {3} {4}".format(
-            open_trade.date_time, 
-            open_trade.description, 
-            open_trade.symbol, 
-            open_trade.quantity, 
-            ita.get_quote(open_trade.symbol)
-            ))
-    
-w = pd.read_csv('weights.csv', )
-w.groupby('C')['C','R'].sum()
-#
-#w[w['CODE'] == 'RSO']['C'].sum()
-#w[w['CODE'] == 'RSO'].loc[:,'LVL':'C']
-#    
-#    
-long_entries = pd.read_csv('long_entries.csv')
-##X = dataset.iloc[:, :-1].values
-##y = dataset.iloc[:, 3].values
-g_alloc =     PF_state.account_val * 0.01;
-
-live_trading  = False
-
-total_exposed = 0
-for index, order in long_entries.iterrows():
-    code = order['C']
-    symbol = order['S']
-    price = order['P']
-    lvl = order['L']
-    ordertype = order['T']
-    
-    sc_coef = w[w['C'] == code].iloc[lvl:,2].values[0]
-    sc_total = w[w['C'] == code].iloc[lvl:,3].values[0] 
-
-    unit_alloc = g_alloc * sc_coef 
-    total_exposed += unit_alloc
-    size =   int(round(unit_alloc / price, 0))      
-    print("Located {:.2f}".format(total_exposed))
-    if ordertype == 0:
-        print('Placing Market order for {0} Buy {1} {2}'.format(symbol, size, sc_coef))
-        if live_trading: 
-            client.trade(symbol, ita.Action.buy, size, duration=ita.Duration.day_order)
-    else:
-        print('Placing Limit order for {0} Buy {1} Limit {2} {3}'.format(symbol, size, price, sc_coef))
-        if live_trading:
-            client.trade(symbol, ita.Action.buy, size, "Limit", price, duration=ita.Duration.day_order)
-        
-#    
-#    
-#    Buying 10 shares of Google (GOOG) at market price:
-#
-#client.trade("GOOG", ita.Action.buy, 10)
-#Selling 10 shares of Google at market price:
-#
-#client.trade("GOOG", ita.Action.sell, 10)
-#Shorting 10 shares of Google:
-#
-#    class Action(Enum):
-#    buy = 1
-#    sell = 2
-#    short = 3
-#    cover = 4
-#
-#
-#class Duration(Enum):
-#    day_order = 1
-#    good_cancel = 2
-
-#cent.trade("GOOG", ita.Action.short, 10)
-#Buying 10 shares of Google with a limit order at $500
-#client.trade("GOOG", ita.Action.SellShort, 10, "Limit", 500)
-#
-#short_entries = pd.read_csv('short_entries.csv')
-##X = dataset.iloc[:, :-1].values
-##y = dataset.iloc[:, 3].values
-#for index, short_order in short_entries.iterrows():
-#    symbol = short_order['Symbol']
-#    price = short_order['Price']
-#    size = short_order['Size']
-#    coef = short_order['Coef']
-#    print('Placing trade for', symbol)
-#    client.trade(symbol, ita.Action.short, size, "Limit", price)
-
-
-    
-    
-    
-    
-    
-    
+#work with order moved to -automation file

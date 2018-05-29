@@ -1,37 +1,378 @@
-C,S,L,P,T
-TS3,SCHW,0,58.15,0
-TS3,SCHW,1,57.57,1
-TS3,SCHW,2,56.99,1
-TS3,SCHW,3,56.41,1
-TS3,SCHW,4,55.83,1
-TS3,SCHW,5,55.25,1
-TS3,SCHW,6,54.67,1
-TS3,SCHW,7,54.09,1
-TS3,SCHW,8,53.51,1
-TS3,COP,0	,68.51,0
-TS3,COP,1,67.7,1
-TS3,COP,2,66.89,1
-TS3,COP,3,66.08,1
-TS3,COP,4,65.27,1
-TS3,COP,5,64.46,1
-TS3,COP,6,63.65,1
-TS3,COP,7,62.84,1
-TS3,COP,8,62.03,1
-TS3,WPX,0,17.88,0
-TS3,WPX,1,17.54,1
-TS3,WPX,2,17.2,1
-TS3,WPX,3,16.86,1
-TS3,WPX,4,16.52,1
-TS3,WPX,5,16.18,1
-TS3,WPX,6,15.84,1
-TS3,WPX,7,15.5,1
-TS3,WPX,8,15.16,1
-TS3,WLL,0,50.54,0
-TS3,WLL,1,49.34,1
-TS3,WLL,2,48.14,1
-TS3,WLL,3,46.94,1
-TS3,WLL,4,45.74,1
-TS3,WLL,5,44.54,1
-TS3,WLL,6,43.34,1
-TS3,WLL,7,42.14,1
-TS3,WLL,8,40.94,1
+_TS2 Placing Action.buy Limit order for INFO Buy 158 Limit 49.76 0.6
+TS2 Placing Action.buy Market order for DXC Buy 56 0.4
+TS2 Placing Action.buy Limit order for DXC Buy 87 Limit 90.74 0.6
+TS2 Placing Action.buy Market order for VLO Buy 44 0.4
+TS2 Placing Action.buy Limit order for VLO Buy 69 Limit 114.96 0.6
+TS2 Placing Action.sell Market order for XLNX Buy 38 0.4
+DEEP Placing Action.buy Market order for DXC Buy 5 0.0345
+DEEP Placing Action.buy Limit order for DXC Buy 10 Limit 93.42 0.069
+DEEP Placing Action.buy Limit order for DXC Buy 10 Limit 92.63 0.069
+DEEP Placing Action.buy Limit order for DXC Buy 15 Limit 91.84 0.1034
+DEEP Placing Action.buy Limit order for DXC Buy 15 Limit 91.05 0.1034
+DEEP Placing Action.buy Limit order for DXC Buy 20 Limit 90.26 0.1379
+DEEP Placing Action.buy Limit order for DXC Buy 20 Limit 89.47 0.1379
+DEEP Placing Action.buy Limit order for DXC Buy 26 Limit 88.68 0.1724
+DEEP Placing Action.buy Limit order for DXC Buy 26 Limit 87.89 0.1724
+TS3 Placing Action.buy Limit order for IGT Buy 87 Limit 26.12 0.1724
+TS3 Placing Action.buy Limit order for SCHW Buy 24 Limit 56.38 0.1034
+TS3 Placing Action.buy Limit order for SCHW Buy 24 Limit 55.77 0.1034
+TS3 Placing Action.buy Limit order for SCHW Buy 33 Limit 55.16 0.1379
+TS3 Placing Action.buy Limit order for SCHW Buy 33 Limit 54.55 0.1379
+TS3 Placing Action.buy Limit order for SCHW Buy 42 Limit 53.94 0.1724
+TS3 Placing Action.buy Limit order for SCHW Buy 42 Limit 53.33 0.1724
+TS3 Placing Action.buy Limit order for COP Buy 29 Limit 63.24 0.1379
+TS3 Placing Action.buy Limit order for COP Buy 37 Limit 62.02 0.1724
+TS3 Placing Action.buy Limit order for COP Buy 37 Limit 60.8 0.1724
+TS3 Placing Action.buy Limit order for WPX Buy 83 Limit 16.45 0.1034
+TS3 Placing Action.buy Limit order for WPX Buy 113 Limit 16.04 0.1379
+TS3 Placing Action.buy Limit order for WPX Buy 116 Limit 15.63 0.1379
+TS3 Placing Action.buy Limit order for WPX Buy 149 Limit 15.22 0.1724
+TS3 Placing Action.buy Limit order for WPX Buy 153 Limit 14.81 0.1724
+TS3 Placing Action.buy Limit order for WLL Buy 30 Limit 45.5 0.1034
+TS3 Placing Action.buy Limit order for WLL Buy 41 Limit 44.06 0.1379
+TS3 Placing Action.buy Limit order for WLL Buy 42 Limit 42.62 0.1379
+TS3 Placing Action.buy Limit order for WLL Buy 55 Limit 41.18 0.1724
+TS3 Placing Action.buy Limit order for WLL Buy 57 Limit 39.74 0.1724
+TS3 Placing Action.buy Market order for CSCO Buy 10 0.0345
+TS3 Placing Action.buy Limit order for CSCO Buy 21 Limit 43.15 0.069
+TS3 Placing Action.buy Limit order for CSCO Buy 21 Limit 42.74 0.069
+TS3 Placing Action.buy Limit order for CSCO Buy 32 Limit 42.33 0.1034
+TS3 Placing Action.buy Limit order for CSCO Buy 32 Limit 41.92 0.1034
+TS3 Placing Action.buy Limit order for CSCO Buy 44 Limit 41.51 0.1379
+TS3 Placing Action.buy Limit order for CSCO Buy 44 Limit 41.1 0.1379
+TS3 Placing Action.buy Limit order for CSCO Buy 56 Limit 40.69 0.1724
+TS3 Placing Action.buy Limit order for CSCO Buy 56 Limit 40.28 0.1724
+TS3 Placing Action.buy Market order for HFC Buy 6 0.0345
+TS3 Placing Action.buy Limit order for HFC Buy 13 Limit 71.1 0.069
+TS3 Placing Action.buy Limit order for HFC Buy 13 Limit 69.51 0.069
+TS3 Placing Action.buy Limit order for HFC Buy 20 Limit 67.92 0.1034
+TS3 Placing Action.buy Limit order for HFC Buy 20 Limit 66.33 0.1034
+TS3 Placing Action.buy Limit order for HFC Buy 28 Limit 64.74 0.1379
+TS3 Placing Action.buy Limit order for HFC Buy 29 Limit 63.15 0.1379
+TS3 Placing Action.buy Limit order for HFC Buy 37 Limit 61.56 0.1724
+TS3 Placing Action.buy Limit order for HFC Buy 38 Limit 59.97 0.1724
+TS3 Placing Action.buy Market order for PBF Buy 10 0.0345
+TS3 Placing Action.buy Limit order for PBF Buy 21 Limit 43.65 0.069
+TS3 Placing Action.buy Limit order for PBF Buy 21 Limit 42.82 0.069
+TS3 Placing Action.buy Limit order for PBF Buy 32 Limit 41.99 0.1034
+TS3 Placing Action.buy Limit order for PBF Buy 33 Limit 41.16 0.1034
+TS3 Placing Action.buy Limit order for PBF Buy 45 Limit 40.33 0.1379
+TS3 Placing Action.buy Limit order for PBF Buy 46 Limit 39.5 0.1379
+TS3 Placing Action.buy Limit order for PBF Buy 59 Limit 38.67 0.1724
+TS3 Placing Action.buy Limit order for PBF Buy 60 Limit 37.84 0.1724
+_TS3 Placing Action.buy Limit order for PBF Buy 60 Limit 37.84 0.1724
+RSO Placing Action.buy Market order for BBY Buy 3 0.0154
+RSO Placing Action.buy Limit order for BBY Buy 3 Limit 68.1 0.0172
+RSO Placing Action.buy Limit order for BBY Buy 4 Limit 67.81 0.0193
+RSO Placing Action.buy Limit order for BBY Buy 4 Limit 67.52 0.0216
+RSO Placing Action.buy Limit order for BBY Buy 5 Limit 67.23 0.0242
+RSO Placing Action.buy Limit order for BBY Buy 5 Limit 66.94 0.0271
+RSO Placing Action.buy Limit order for BBY Buy 6 Limit 66.65 0.0303
+RSO Placing Action.buy Limit order for BBY Buy 7 Limit 66.36 0.0339
+RSO Placing Action.buy Limit order for BBY Buy 8 Limit 66.07 0.038
+RSO Placing Action.buy Limit order for BBY Buy 9 Limit 65.78 0.0426
+RSO Placing Action.buy Limit order for BBY Buy 10 Limit 65.49 0.0477
+RSO Placing Action.buy Limit order for BBY Buy 11 Limit 65.2 0.0534
+RSO Placing Action.buy Limit order for BBY Buy 12 Limit 64.91 0.0598
+RSO Placing Action.buy Limit order for BBY Buy 14 Limit 64.62 0.067
+RSO Placing Action.buy Limit order for BBY Buy 15 Limit 64.33 0.075
+RSO Placing Action.buy Limit order for BBY Buy 17 Limit 64.04 0.084
+RSO Placing Action.buy Limit order for BBY Buy 19 Limit 63.75 0.0941
+RSO Placing Action.buy Limit order for BBY Buy 22 Limit 63.46 0.1054
+RSO Placing Action.buy Limit order for BBY Buy 25 Limit 63.17 0.1181
+RSO Placing Action.buy Limit order for FITB Buy 5 Limit 30.99 0.0122
+RSO Placing Action.buy Limit order for FITB Buy 6 Limit 30.91 0.0137
+RSO Placing Action.buy Limit order for FITB Buy 7 Limit 30.83 0.0154
+RSO Placing Action.buy Limit order for FITB Buy 7 Limit 30.75 0.0172
+RSO Placing Action.buy Limit order for FITB Buy 8 Limit 30.67 0.0193
+RSO Placing Action.buy Limit order for FITB Buy 9 Limit 30.6 0.0216
+RSO Placing Action.buy Limit order for FITB Buy 10 Limit 30.52 0.0242
+RSO Placing Action.buy Limit order for FITB Buy 12 Limit 30.44 0.0271
+RSO Placing Action.buy Limit order for FITB Buy 13 Limit 30.36 0.0303
+RSO Placing Action.buy Limit order for FITB Buy 15 Limit 30.28 0.0339
+RSO Placing Action.buy Limit order for FITB Buy 17 Limit 30.21 0.038
+RSO Placing Action.buy Limit order for FITB Buy 19 Limit 30.13 0.0426
+RSO Placing Action.buy Limit order for FITB Buy 21 Limit 30.05 0.0477
+RSO Placing Action.buy Limit order for FITB Buy 23 Limit 29.97 0.0534
+RSO Placing Action.buy Limit order for FITB Buy 26 Limit 29.89 0.0598
+RSO Placing Action.buy Limit order for FITB Buy 30 Limit 29.82 0.067
+RSO Placing Action.buy Limit order for FITB Buy 33 Limit 29.74 0.075
+RSO Placing Action.buy Limit order for FITB Buy 37 Limit 29.66 0.084
+RSO Placing Action.buy Limit order for FITB Buy 42 Limit 29.58 0.0941
+RSO Placing Action.buy Limit order for FITB Buy 47 Limit 29.5 0.1054
+RSO Placing Action.buy Limit order for FITB Buy 53 Limit 29.43 0.1181
+RSO Placing Action.buy Limit order for HES Buy 3 Limit 57.77 0.0122
+RSO Placing Action.buy Limit order for HES Buy 3 Limit 57.55 0.0137
+RSO Placing Action.buy Limit order for HES Buy 4 Limit 57.33 0.0154
+RSO Placing Action.buy Limit order for HES Buy 4 Limit 57.11 0.0172
+RSO Placing Action.buy Limit order for HES Buy 4 Limit 56.9 0.0193
+RSO Placing Action.buy Limit order for HES Buy 5 Limit 56.68 0.0216
+RSO Placing Action.buy Limit order for HES Buy 6 Limit 56.46 0.0242
+RSO Placing Action.buy Limit order for HES Buy 6 Limit 56.24 0.0271
+RSO Placing Action.buy Limit order for HES Buy 7 Limit 56.03 0.0303
+RSO Placing Action.buy Limit order for HES Buy 8 Limit 55.81 0.0339
+RSO Placing Action.buy Limit order for HES Buy 9 Limit 55.59 0.038
+RSO Placing Action.buy Limit order for HES Buy 10 Limit 55.37 0.0426
+RSO Placing Action.buy Limit order for HES Buy 11 Limit 55.16 0.0477
+RSO Placing Action.buy Limit order for HES Buy 13 Limit 54.94 0.0534
+RSO Placing Action.buy Limit order for HES Buy 14 Limit 54.72 0.0598
+RSO Placing Action.buy Limit order for HES Buy 16 Limit 54.51 0.067
+RSO Placing Action.buy Limit order for HES Buy 18 Limit 54.29 0.075
+RSO Placing Action.buy Limit order for HES Buy 20 Limit 54.07 0.084
+RSO Placing Action.buy Limit order for HES Buy 23 Limit 53.85 0.0941
+RSO Placing Action.buy Limit order for HES Buy 26 Limit 53.64 0.1054
+RSO Placing Action.buy Limit order for HES Buy 29 Limit 53.42 0.1181
+RSO Placing Action.buy Limit order for MRO Buy 8 Limit 20.06 0.0122
+RSO Placing Action.buy Limit order for MRO Buy 9 Limit 19.98 0.0137
+RSO Placing Action.buy Limit order for MRO Buy 10 Limit 19.91 0.0154
+RSO Placing Action.buy Limit order for MRO Buy 11 Limit 19.84 0.0172
+RSO Placing Action.buy Limit order for MRO Buy 13 Limit 19.76 0.0193
+RSO Placing Action.buy Limit order for MRO Buy 14 Limit 19.69 0.0216
+RSO Placing Action.buy Limit order for MRO Buy 16 Limit 19.61 0.0242
+RSO Placing Action.buy Limit order for MRO Buy 18 Limit 19.54 0.0271
+RSO Placing Action.buy Limit order for MRO Buy 20 Limit 19.47 0.0303
+RSO Placing Action.buy Limit order for MRO Buy 23 Limit 19.39 0.0339
+RSO Placing Action.buy Limit order for MRO Buy 26 Limit 19.32 0.038
+RSO Placing Action.buy Limit order for MRO Buy 29 Limit 19.24 0.0426
+RSO Placing Action.buy Limit order for MRO Buy 33 Limit 19.17 0.0477
+RSO Placing Action.buy Limit order for MRO Buy 37 Limit 19.1 0.0534
+RSO Placing Action.buy Limit order for MRO Buy 41 Limit 19.02 0.0598
+RSO Placing Action.buy Limit order for MRO Buy 46 Limit 18.95 0.067
+RSO Placing Action.buy Limit order for MRO Buy 52 Limit 18.87 0.075
+RSO Placing Action.buy Limit order for MRO Buy 59 Limit 18.8 0.084
+RSO Placing Action.buy Limit order for MRO Buy 66 Limit 18.73 0.0941
+RSO Placing Action.buy Limit order for MRO Buy 74 Limit 18.65 0.1054
+RSO Placing Action.buy Limit order for MRO Buy 83 Limit 18.58 0.1181
+RSO Placing Action.buy Limit order for FLS Buy 4 Limit 41.66 0.0122
+RSO Placing Action.buy Limit order for FLS Buy 4 Limit 41.55 0.0137
+RSO Placing Action.buy Limit order for FLS Buy 5 Limit 41.43 0.0154
+RSO Placing Action.buy Limit order for FLS Buy 5 Limit 41.32 0.0172
+RSO Placing Action.buy Limit order for FLS Buy 6 Limit 41.21 0.0193
+RSO Placing Action.buy Limit order for FLS Buy 7 Limit 41.1 0.0216
+RSO Placing Action.buy Limit order for FLS Buy 8 Limit 40.99 0.0242
+RSO Placing Action.buy Limit order for FLS Buy 9 Limit 40.87 0.0271
+RSO Placing Action.buy Limit order for FLS Buy 10 Limit 40.76 0.0303
+RSO Placing Action.buy Limit order for FLS Buy 11 Limit 40.65 0.0339
+RSO Placing Action.buy Limit order for FLS Buy 12 Limit 40.54 0.038
+RSO Placing Action.buy Limit order for FLS Buy 14 Limit 40.43 0.0426
+RSO Placing Action.buy Limit order for FLS Buy 16 Limit 40.31 0.0477
+RSO Placing Action.buy Limit order for FLS Buy 17 Limit 40.2 0.0534
+RSO Placing Action.buy Limit order for FLS Buy 20 Limit 40.09 0.0598
+RSO Placing Action.buy Limit order for FLS Buy 22 Limit 39.98 0.067
+RSO Placing Action.buy Limit order for FLS Buy 25 Limit 39.86 0.075
+RSO Placing Action.buy Limit order for FLS Buy 28 Limit 39.75 0.084
+RSO Placing Action.buy Limit order for FLS Buy 31 Limit 39.64 0.0941
+RSO Placing Action.buy Limit order for FLS Buy 35 Limit 39.53 0.1054
+RSO Placing Action.buy Limit order for FLS Buy 39 Limit 39.42 0.1181
+100H Placing Action.buy Market order for FEYE Buy 53 0.0664
+100H Placing Action.buy Limit order for FEYE Buy 59 Limit 16.45 0.0744
+100H Placing Action.buy Limit order for FEYE Buy 67 Limit 16.39 0.0833
+100H Placing Action.buy Limit order for FEYE Buy 75 Limit 16.33 0.0933
+100H Placing Action.buy Limit order for FEYE Buy 84 Limit 16.27 0.1045
+100H Placing Action.buy Limit order for FEYE Buy 95 Limit 16.2 0.11699999999999999
+100H Placing Action.buy Limit order for FEYE Buy 107 Limit 16.14 0.1311
+100H Placing Action.buy Market order for AA Buy 18 0.0664
+100H Placing Action.buy Limit order for AA Buy 21 Limit 47.62 0.0744
+100H Placing Action.buy Limit order for AA Buy 23 Limit 47.45 0.0833
+100H Placing Action.buy Limit order for AA Buy 26 Limit 47.27 0.0933
+100H Placing Action.buy Limit order for AA Buy 29 Limit 47.1 0.1045
+100H Placing Action.buy Limit order for AA Buy 33 Limit 46.92 0.11699999999999999
+100H Placing Action.buy Limit order for AA Buy 37 Limit 46.75 0.1311
+100H Placing Action.buy Market order for BBY Buy 17 0.0933
+100H Placing Action.buy Limit order for BBY Buy 19 Limit 70.89 0.1045
+100H Placing Action.buy Limit order for BBY Buy 22 Limit 70.89 0.11699999999999999
+100H Placing Action.buy Limit order for BBY Buy 24 Limit 70.89 0.1311
+100H Placing Action.buy Market order for PXD Buy 8 0.11699999999999999
+100H Placing Action.buy Limit order for PXD Buy 9 Limit 185.99 0.1311
+100H Placing Action.buy Market order for NBR Buy 239 0.1311
+100H Placing Action.buy Market order for FANG Buy 7 0.0593
+100H Placing Action.buy Limit order for FANG Buy 7 Limit 117.46 0.0664
+100H Placing Action.buy Limit order for FANG Buy 8 Limit 116.79 0.0744
+100H Placing Action.buy Limit order for FANG Buy 9 Limit 116.13 0.0833
+100H Placing Action.buy Limit order for FANG Buy 11 Limit 115.46 0.0933
+100H Placing Action.buy Limit order for FANG Buy 12 Limit 114.79 0.1045
+100H Placing Action.buy Limit order for FANG Buy 13 Limit 114.12 0.11699999999999999
+100H Placing Action.buy Limit order for FANG Buy 15 Limit 113.46 0.1311
+100H Placing Action.buy Market order for RIG Buy 71 0.0664
+100H Placing Action.buy Limit order for RIG Buy 81 Limit 12.13 0.0744
+100H Placing Action.buy Limit order for RIG Buy 91 Limit 12.06 0.0833
+100H Placing Action.buy Limit order for RIG Buy 102 Limit 11.99 0.0933
+100H Placing Action.buy Limit order for RIG Buy 115 Limit 11.92 0.1045
+100H Placing Action.buy Limit order for RIG Buy 130 Limit 11.85 0.11699999999999999
+100H Placing Action.buy Limit order for RIG Buy 146 Limit 11.77 0.1311
+100H Placing Action.buy Market order for RSPP Buy 9 0.03
+100H Placing Action.buy Limit order for RSPP Buy 10 Limit 43.27 0.0336
+100H Placing Action.buy Limit order for RSPP Buy 11 Limit 43.06 0.0377
+100H Placing Action.buy Limit order for RSPP Buy 13 Limit 42.86 0.0422
+100H Placing Action.buy Limit order for RSPP Buy 15 Limit 42.66 0.0473
+100H Placing Action.buy Limit order for RSPP Buy 16 Limit 42.45 0.0529
+100H Placing Action.buy Limit order for RSPP Buy 18 Limit 42.25 0.0593
+100H Placing Action.buy Limit order for RSPP Buy 21 Limit 42.05 0.0664
+100H Placing Action.buy Limit order for RSPP Buy 23 Limit 41.84 0.0744
+100H Placing Action.buy Limit order for RSPP Buy 26 Limit 41.64 0.0833
+100H Placing Action.buy Limit order for RSPP Buy 30 Limit 41.44 0.0933
+100H Placing Action.buy Limit order for RSPP Buy 33 Limit 41.23 0.1045
+100H Placing Action.buy Limit order for RSPP Buy 37 Limit 41.03 0.11699999999999999
+100H Placing Action.buy Limit order for RSPP Buy 42 Limit 40.83 0.1311
+100H Placing Action.buy Market order for FLS Buy 12 0.0377
+100H Placing Action.buy Limit order for FLS Buy 13 Limit 42.0 0.0422
+100H Placing Action.buy Limit order for FLS Buy 15 Limit 41.85 0.0473
+100H Placing Action.buy Limit order for FLS Buy 17 Limit 41.7 0.0529
+100H Placing Action.buy Limit order for FLS Buy 19 Limit 41.55 0.0593
+100H Placing Action.buy Limit order for FLS Buy 21 Limit 41.4 0.0664
+100H Placing Action.buy Limit order for FLS Buy 24 Limit 41.25 0.0744
+100H Placing Action.buy Limit order for FLS Buy 27 Limit 41.1 0.0833
+100H Placing Action.buy Limit order for FLS Buy 30 Limit 40.95 0.0933
+100H Placing Action.buy Limit order for FLS Buy 34 Limit 40.8 0.1045
+100H Placing Action.buy Limit order for FLS Buy 38 Limit 40.65 0.11699999999999999
+100H Placing Action.buy Limit order for FLS Buy 43 Limit 40.5 0.1311
+100H Placing Action.buy Market order for CTL Buy 43 0.0593
+100H Placing Action.buy Limit order for CTL Buy 49 Limit 17.92 0.0664
+100H Placing Action.buy Limit order for CTL Buy 55 Limit 17.85 0.0744
+100H Placing Action.buy Limit order for CTL Buy 61 Limit 17.79 0.0833
+100H Placing Action.buy Limit order for CTL Buy 69 Limit 17.73 0.0933
+100H Placing Action.buy Limit order for CTL Buy 78 Limit 17.67 0.1045
+100H Placing Action.buy Limit order for CTL Buy 87 Limit 17.6 0.11699999999999999
+100H Placing Action.buy Limit order for CTL Buy 98 Limit 17.54 0.1311
+BONNH Placing Action.buy Limit order for WTI Buy 233 Limit 6.26 0.1111
+BONNH Placing Action.buy Limit order for WTI Buy 234 Limit 6.23 0.1111
+BONNH Placing Action.buy Limit order for WTI Buy 235 Limit 6.2 0.1111
+BONNH Placing Action.buy Limit order for WTI Buy 236 Limit 6.17 0.1111
+BONNH Placing Action.buy Limit order for WTI Buy 238 Limit 6.14 0.1111
+BONNH Placing Action.buy Limit order for WTI Buy 239 Limit 6.11 0.1111
+BONNH Placing Action.buy Limit order for WTI Buy 240 Limit 6.08 0.1111
+BONNH Placing Action.buy Limit order for WTI Buy 241 Limit 6.05 0.1111
+BONNH Placing Action.buy Limit order for WTI Buy 242 Limit 6.02 0.1111
+BONNH Placing Action.buy Limit order for BBY Buy 22 Limit 65.03 0.1111
+BONNH Placing Action.buy Limit order for BBY Buy 22 Limit 64.92 0.1111
+BONNH Placing Action.buy Limit order for BBY Buy 23 Limit 64.81 0.1111
+BONNH Placing Action.buy Limit order for BBY Buy 23 Limit 64.7 0.1111
+BONNH Placing Action.buy Limit order for BBY Buy 23 Limit 64.59 0.1111
+BONNH Placing Action.buy Limit order for BBY Buy 23 Limit 64.48 0.1111
+BONNH Placing Action.buy Limit order for BBY Buy 23 Limit 64.37 0.1111
+BONNH Placing Action.buy Limit order for BBY Buy 23 Limit 64.26 0.1111
+BONNH Placing Action.buy Limit order for BBY Buy 23 Limit 64.15 0.1111
+BONNH Placing Action.buy Limit order for IGT Buy 58 Limit 25.08 0.1111
+BONNH Placing Action.buy Limit order for IGT Buy 58 Limit 25.03 0.1111
+BONNH Placing Action.buy Limit order for IGT Buy 58 Limit 24.98 0.1111
+BONNH Placing Action.buy Limit order for IGT Buy 59 Limit 24.93 0.1111
+BONNH Placing Action.buy Limit order for IGT Buy 59 Limit 24.88 0.1111
+BONNH Placing Action.buy Limit order for IGT Buy 59 Limit 24.83 0.1111
+BONNH Placing Action.buy Limit order for IGT Buy 59 Limit 24.78 0.1111
+BONNH Placing Action.buy Limit order for IGT Buy 59 Limit 24.73 0.1111
+BONNH Placing Action.buy Limit order for IGT Buy 59 Limit 24.68 0.1111
+BONNH Placing Action.buy Limit order for BRS Buy 122 Limit 11.92 0.1111
+BONNH Placing Action.buy Limit order for BRS Buy 123 Limit 11.87 0.1111
+BONNH Placing Action.buy Limit order for BRS Buy 123 Limit 11.82 0.1111
+BONNH Placing Action.buy Limit order for BRS Buy 124 Limit 11.77 0.1111
+BONNH Placing Action.buy Limit order for BRS Buy 124 Limit 11.72 0.1111
+BONNH Placing Action.buy Limit order for BRS Buy 125 Limit 11.67 0.1111
+BONNH Placing Action.buy Limit order for BRS Buy 126 Limit 11.62 0.1111
+BONNH Placing Action.buy Limit order for BRS Buy 126 Limit 11.57 0.1111
+BONNH Placing Action.buy Limit order for BRS Buy 127 Limit 11.52 0.1111
+BONNH Placing Action.buy Limit order for HLF Buy 32 Limit 46.27 0.1111
+BONNH Placing Action.buy Limit order for HLF Buy 32 Limit 46.2 0.1111
+BONNH Placing Action.buy Limit order for HLF Buy 32 Limit 46.13 0.1111
+BONNH Placing Action.buy Limit order for HLF Buy 32 Limit 46.06 0.1111
+BONNH Placing Action.buy Limit order for HLF Buy 32 Limit 45.99 0.1111
+BONNH Placing Action.buy Limit order for HLF Buy 32 Limit 45.92 0.1111
+BONNH Placing Action.buy Limit order for HLF Buy 32 Limit 45.85 0.1111
+BONNH Placing Action.buy Limit order for HLF Buy 32 Limit 45.78 0.1111
+BONNH Placing Action.buy Limit order for HLF Buy 32 Limit 45.71 0.1111
+BONNH Placing Action.buy Limit order for DXC Buy 16 Limit 89.5 0.1111
+BONNH Placing Action.buy Limit order for DXC Buy 16 Limit 89.39 0.1111
+BONNH Placing Action.buy Limit order for DXC Buy 16 Limit 89.28 0.1111
+BONNH Placing Action.buy Limit order for DXC Buy 16 Limit 89.17 0.1111
+BONNH Placing Action.buy Limit order for DXC Buy 16 Limit 89.06 0.1111
+BONNH Placing Action.buy Limit order for DXC Buy 16 Limit 88.95 0.1111
+BONNH Placing Action.buy Limit order for DXC Buy 16 Limit 88.84 0.1111
+BONNH Placing Action.buy Limit order for DXC Buy 16 Limit 88.73 0.1111
+BONNH Placing Action.buy Limit order for DXC Buy 16 Limit 88.62 0.1111
+BONNH Placing Action.buy Limit order for CIT Buy 30 Limit 49.07 0.1111
+BONNH Placing Action.buy Limit order for CIT Buy 30 Limit 49.02 0.1111
+BONNH Placing Action.buy Limit order for CIT Buy 30 Limit 48.97 0.1111
+BONNH Placing Action.buy Limit order for CIT Buy 30 Limit 48.92 0.1111
+BONNH Placing Action.buy Limit order for CIT Buy 30 Limit 48.87 0.1111
+BONNH Placing Action.buy Limit order for CIT Buy 30 Limit 48.82 0.1111
+BONNH Placing Action.buy Limit order for CIT Buy 30 Limit 48.77 0.1111
+BONNH Placing Action.buy Limit order for CIT Buy 30 Limit 48.72 0.1111
+BONNH Placing Action.buy Limit order for CIT Buy 30 Limit 48.67 0.1111
+BON Placing Action.buy Limit order for BRS Buy 122 Limit 11.92 0.1111
+BON Placing Action.buy Limit order for BRS Buy 123 Limit 11.87 0.1111
+BON Placing Action.buy Limit order for BRS Buy 123 Limit 11.82 0.1111
+BON Placing Action.buy Limit order for BRS Buy 124 Limit 11.77 0.1111
+BON Placing Action.buy Limit order for BRS Buy 124 Limit 11.72 0.1111
+BON Placing Action.buy Limit order for BRS Buy 125 Limit 11.67 0.1111
+BON Placing Action.buy Limit order for BRS Buy 126 Limit 11.62 0.1111
+BON Placing Action.buy Limit order for BRS Buy 126 Limit 11.57 0.1111
+BON Placing Action.buy Limit order for BRS Buy 127 Limit 11.52 0.1111
+BON Placing Action.buy Limit order for WTI Buy 233 Limit 6.26 0.1111
+BON Placing Action.buy Limit order for WTI Buy 234 Limit 6.23 0.1111
+BON Placing Action.buy Limit order for WTI Buy 235 Limit 6.2 0.1111
+BON Placing Action.buy Limit order for WTI Buy 236 Limit 6.17 0.1111
+BON Placing Action.buy Limit order for WTI Buy 238 Limit 6.14 0.1111
+BON Placing Action.buy Limit order for WTI Buy 239 Limit 6.11 0.1111
+BON Placing Action.buy Limit order for WTI Buy 240 Limit 6.08 0.1111
+BON Placing Action.buy Limit order for WTI Buy 241 Limit 6.05 0.1111
+BON Placing Action.buy Limit order for WTI Buy 242 Limit 6.02 0.1111
+BON Placing Action.buy Limit order for IGT Buy 58 Limit 25.08 0.1111
+BON Placing Action.buy Limit order for IGT Buy 58 Limit 25.03 0.1111
+BON Placing Action.buy Limit order for IGT Buy 58 Limit 24.98 0.1111
+BON Placing Action.buy Limit order for IGT Buy 59 Limit 24.93 0.1111
+BON Placing Action.buy Limit order for IGT Buy 59 Limit 24.88 0.1111
+BON Placing Action.buy Limit order for IGT Buy 59 Limit 24.83 0.1111
+BON Placing Action.buy Limit order for IGT Buy 59 Limit 24.78 0.1111
+BON Placing Action.buy Limit order for IGT Buy 59 Limit 24.73 0.1111
+BON Placing Action.buy Limit order for IGT Buy 59 Limit 24.68 0.1111
+BON Placing Action.buy Limit order for PUMP Buy 87 Limit 16.82 0.1111
+BON Placing Action.buy Limit order for PUMP Buy 87 Limit 16.78 0.1111
+BON Placing Action.buy Limit order for PUMP Buy 87 Limit 16.74 0.1111
+BON Placing Action.buy Limit order for PUMP Buy 87 Limit 16.7 0.1111
+BON Placing Action.buy Limit order for PUMP Buy 88 Limit 16.66 0.1111
+BON Placing Action.buy Limit order for PUMP Buy 88 Limit 16.62 0.1111
+BON Placing Action.buy Limit order for PUMP Buy 88 Limit 16.58 0.1111
+BON Placing Action.buy Limit order for PUMP Buy 88 Limit 16.54 0.1111
+BON Placing Action.buy Limit order for PUMP Buy 88 Limit 16.5 0.1111
+BON Placing Action.buy Limit order for SPLK Buy 14 Limit 104.75 0.1111
+BON Placing Action.buy Limit order for SPLK Buy 14 Limit 104.56 0.1111
+BON Placing Action.buy Limit order for SPLK Buy 14 Limit 104.37 0.1111
+BON Placing Action.buy Limit order for SPLK Buy 14 Limit 104.18 0.1111
+BON Placing Action.buy Limit order for SPLK Buy 14 Limit 103.99 0.1111
+BON Placing Action.buy Limit order for SPLK Buy 14 Limit 103.8 0.1111
+BON Placing Action.buy Limit order for SPLK Buy 14 Limit 103.61 0.1111
+BON Placing Action.buy Limit order for SPLK Buy 14 Limit 103.42 0.1111
+BON Placing Action.buy Limit order for SPLK Buy 14 Limit 103.23 0.1111
+BON Placing Action.buy Limit order for AMN Buy 28 Limit 52.06 0.1111
+BON Placing Action.buy Limit order for AMN Buy 28 Limit 51.96 0.1111
+BON Placing Action.buy Limit order for AMN Buy 28 Limit 51.86 0.1111
+BON Placing Action.buy Limit order for AMN Buy 28 Limit 51.76 0.1111
+BON Placing Action.buy Limit order for AMN Buy 28 Limit 51.66 0.1111
+BON Placing Action.buy Limit order for AMN Buy 28 Limit 51.56 0.1111
+BON Placing Action.buy Limit order for AMN Buy 28 Limit 51.46 0.1111
+BON Placing Action.buy Limit order for AMN Buy 28 Limit 51.36 0.1111
+BON Placing Action.buy Limit order for AMN Buy 28 Limit 51.26 0.1111
+BON Placing Action.buy Limit order for AA Buy 32 Limit 45.53 0.1111
+BON Placing Action.buy Limit order for AA Buy 32 Limit 45.46 0.1111
+BON Placing Action.buy Limit order for AA Buy 32 Limit 45.39 0.1111
+BON Placing Action.buy Limit order for AA Buy 32 Limit 45.32 0.1111
+BON Placing Action.buy Limit order for AA Buy 32 Limit 45.25 0.1111
+BON Placing Action.buy Limit order for AA Buy 32 Limit 45.18 0.1111
+BON Placing Action.buy Limit order for AA Buy 32 Limit 45.11 0.1111
+BON Placing Action.buy Limit order for AA Buy 32 Limit 45.04 0.1111
+BON Placing Action.buy Limit order for AA Buy 32 Limit 44.97 0.1111
+SOR2 Placing Action.buy Limit order for IGT Buy 168 Limit 26.07 0.3333
+SOR2 Placing Action.buy Limit order for BRS Buy 363 Limit 12.05 0.3333
+SOR2 Placing Action.buy Limit order for BRS Buy 367 Limit 11.94 0.3333
+SOR2 Placing Action.buy Limit order for BRS Buy 370 Limit 11.84 0.3333
+SOR2 Placing Action.buy Limit order for ENVA Buy 143 Limit 30.58 0.3333
+SOR2 Placing Action.buy Limit order for ENVA Buy 144 Limit 30.46 0.3333
+SOR2 Placing Action.buy Limit order for ENVA Buy 144 Limit 30.33 0.3333
+SOR2 Placing Action.buy Limit order for WTI Buy 692 Limit 6.33 0.3333
+SOR2 Placing Action.buy Limit order for WTI Buy 698 Limit 6.27 0.3333
+SOR2 Placing Action.buy Limit order for WTI Buy 704 Limit 6.22 0.3333
+SOR2 Placing Action.sell Limit order for IGT Buy 167 Limit 27.23 0.3333
+SV5U Placing Action.short Limit order for LEN Buy 48 Limit 54.99 0.2
+SV5U Placing Action.short Limit order for LEN Buy 48 Limit 55.16 0.2
+SV5U Placing Action.short Limit order for LEN Buy 47 Limit 55.33 0.2
+SV5U Placing Action.short Limit order for LEN Buy 47 Limit 55.49 0.2
+SV5U Placing Action.short Limit order for LEN Buy 47 Limit 55.66 0.2

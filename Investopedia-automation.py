@@ -18,6 +18,19 @@ class PortfolioMetrics:
     exposure_gross = 0;
     exposure_at_cost = 0;
     
+    
+def DecodeOrderSide(side_code):
+    if side_code == 1:
+        return ita.Action.buy
+    elif side_code == 2:
+        return ita.Action.sell
+    elif side_code == 3:
+        return ita.Action.short
+    elif side_code == 4: 
+        return ita.Action.cover
+    else:
+        return 0
+
 
 password = getpass.getpass(prompt = 'Investopedia account password:')
 print('Logging in.....')
@@ -37,45 +50,74 @@ for open_trade in open_trades:
             open_trade.quantity, 
             ita.get_quote(open_trade.symbol)
             ))
+
+
+
+live_trading  = True
+max_value  = 0.01
     
 w = pd.read_csv('weights.csv', )
 w.groupby('C')['C','R'].sum()
+
 #
 #w[w['CODE'] == 'RSO']['C'].sum()
 #w[w['CODE'] == 'RSO'].loc[:,'LVL':'C']
 #    
 #    
-long_entries = pd.read_csv('long_entries.csv')
-##X = dataset.iloc[:, :-1].values
-##y = dataset.iloc[:, 3].values
-g_alloc =     PF_state.account_val * 0.01;
+
+long_entries = pd.read_csv('entries.csv')
+g_alloc =     PF_state.account_val * max_value
 
 print("Initial {:.2f}".format(g_alloc))
-live_trading  = False
+
+r_alloc  = {}
 
 total_exposed = 0
+
 for index, order in long_entries.iterrows():
     code = order['C']
     symbol = order['S']
     price = order['P']
     lvl = order['L']
-    ordertype = order['T']
+    ordertype = order['T'] # 0 - Market, 1 -Limit
+    orderside = DecodeOrderSide(order['R']) # 1 - Long, 2-Sell, 3-Short, 4-BuyToCover
+    exit_Z = order['Z'] # Size to exit
     
     sc_coef = w[w['C'] == code].iloc[lvl:,w.columns.get_loc("R")].values[0]
     sc_total = w[w['C'] == code].iloc[lvl:,w.columns.get_loc("T")].values[0] 
-
     unit_alloc = g_alloc * sc_coef 
-    total_exposed += unit_alloc
-    size =   int(round(unit_alloc / price, 0))      
-    print("Located {:.2f}".format(total_exposed))
-    if ordertype == 0:
-        print('Placing Market order for {0} Buy {1} {2}'.format(symbol, size, sc_coef))
-        if live_trading: 
-            client.trade(symbol, ita.Action.buy, size, duration=ita.Duration.day_order)
+
+
+    if exit_Z == 0 :
+        size =   int(round(unit_alloc / price, 0))      
     else:
-        print('Placing Limit order for {0} Buy {1} Limit {2} {3}'.format(symbol, size, price, sc_coef))
+        size = exit_Z
+
+    key = code+symbol
+    t_alloc = 0
+    if key in r_alloc :
+        t_alloc = r_alloc[key]
+    r_alloc[code+symbol] = t_alloc + ( size *  price )
+    total_exposed += unit_alloc
+
+#    print("{0} {1} {2} {3} {4} {5}".format(code, symbol, size, sc_coef, sc_total, unit_alloc))
+
+    if ordertype == 0:
+        print('{0} Placing {1} Market order for {2} Buy {3} {4}'.format(code, orderside, symbol, size, sc_coef))
+        if live_trading: 
+            if not client.trade(symbol, orderside, size, duration=ita.Duration.day_order):
+                print("failed")
+    else:
+        print('{0} Placing {1} Limit order for {2} Buy {3} Limit {4} {5}'.format(code, orderside, symbol, size, price, sc_coef))
         if live_trading:
-            client.trade(symbol, ita.Action.buy, size, "Limit", price, duration=ita.Duration.day_order)
+            if not client.trade(symbol, orderside, size, "Limit", price, duration=ita.Duration.day_order):
+                print("failed")
+
+
+print("Total allocated {:.2f}".format(total_exposed))
+
+print(r_alloc)
+
         
 #    
 #    
