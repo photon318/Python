@@ -40,17 +40,17 @@ PF_state = client.get_portfolio_status()
 
 portfolio = client.get_current_securities()
 PF = PortfolioMetrics();
-
-open_trades = client.get_open_trades()
-for open_trade in open_trades:
-    print("{0} {1} {2} {3} {4}".format(
-            open_trade.date_time, 
-            open_trade.description, 
-            open_trade.symbol, 
-            open_trade.quantity, 
-            ita.get_quote(open_trade.symbol)
-            ))
-
+#
+#open_trades = client.get_open_trades()
+#for open_trade in open_trades:
+#    print("{0} {1} {2} {3} {4}".format(
+#            open_trade.date_time, 
+#            open_trade.description, 
+#            open_trade.symbol, 
+#            open_trade.quantity, 
+#            ita.get_quote(open_trade.symbol)
+#            ))
+#
 
 
 live_trading  = True
@@ -103,12 +103,12 @@ for index, order in long_entries.iterrows():
 #    print("{0} {1} {2} {3} {4} {5}".format(code, symbol, size, sc_coef, sc_total, unit_alloc))
 
     if ordertype == 0:
-        print('{0} Placing {1} Market order for {2} Buy {3} {4}'.format(code, orderside, symbol, size, sc_coef))
+        print('{0} Placing {1} Market order for {2} {3} {4}'.format(code, orderside, symbol, size, sc_coef))
         if live_trading: 
             if not client.trade(symbol, orderside, size, duration=ita.Duration.day_order):
                 print("failed")
     else:
-        print('{0} Placing {1} Limit order for {2} Buy {3} Limit {4} {5}'.format(code, orderside, symbol, size, price, sc_coef))
+        print('{0} Placing {1} Limit order for {2} {3} Limit {4} {5}'.format(code, orderside, symbol, size, price, sc_coef))
         if live_trading:
             if not client.trade(symbol, orderside, size, "Limit", price, duration=ita.Duration.day_order):
                 print("failed")
