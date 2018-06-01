@@ -54,7 +54,7 @@ PF = PortfolioMetrics();
 
 
 live_trading  = True
-max_value  = 0.01
+max_value  = 0.02
     
 w = pd.read_csv('weights.csv', )
 w.groupby('C')['C','R'].sum()
@@ -64,13 +64,14 @@ w.groupby('C')['C','R'].sum()
 #w[w['CODE'] == 'RSO'].loc[:,'LVL':'C']
 #    
 #    
-
-long_entries = pd.read_csv('entries.csv')
+long_entries = pd.read_csv('entries-2018-06-01.csv')
 g_alloc =     PF_state.account_val * max_value
 
 print("Initial {:.2f}".format(g_alloc))
 
 r_alloc  = {}
+open_pos = {}
+actual_orders = []
 
 total_exposed = 0
 
@@ -87,21 +88,28 @@ for index, order in long_entries.iterrows():
     sc_total = w[w['C'] == code].iloc[lvl:,w.columns.get_loc("T")].values[0] 
     unit_alloc = g_alloc * sc_coef 
 
+    key = code+'$'+symbol
+    keycsv = code+','+symbol
 
     if exit_Z == 0 :
         size =   int(round(unit_alloc / price, 0))      
+
+        prev_size = 0
+        if key in open_pos :
+            prev_size = open_pos[key]
+        open_pos[key] = prev_size + size
+        
+        t_alloc = 0
+        if key in r_alloc :
+            t_alloc = r_alloc[key]
+        r_alloc[key] = t_alloc + ( size *  price )
+
+        total_exposed += unit_alloc
+
+        actual_orders.append(keycsv +','+str(lvl)+','+str(orderside)+','+str(ordertype)+',' + str(size)+','+str(price))
     else:
         size = exit_Z
-
-    key = code+symbol
-    t_alloc = 0
-    if key in r_alloc :
-        t_alloc = r_alloc[key]
-    r_alloc[code+symbol] = t_alloc + ( size *  price )
-    total_exposed += unit_alloc
-
-#    print("{0} {1} {2} {3} {4} {5}".format(code, symbol, size, sc_coef, sc_total, unit_alloc))
-
+    
     if ordertype == 0:
         print('{0} Placing {1} Market order for {2} {3} {4}'.format(code, orderside, symbol, size, sc_coef))
         if live_trading: 
@@ -117,6 +125,15 @@ for index, order in long_entries.iterrows():
 print("Total allocated {:.2f}".format(total_exposed))
 
 print(r_alloc)
+
+try:
+    with open('actual-2018-06-01.csv','wt') as file:
+        for line in actual_orders:
+            file.write(line)
+            file.write('\n')
+except Exception:
+    print("Write actual orders to file failed")
+
 
         
 #    
@@ -154,11 +171,3 @@ print(r_alloc)
 #    coef = short_order['Coef']
 #    print('Placing trade for', symbol)
 #    client.trade(symbol, ita.Action.short, size, "Limit", price)
-
-
-    
-    
-    
-    
-    
-    
