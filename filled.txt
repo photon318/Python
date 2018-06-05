@@ -1,0 +1,55 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Mon Jun  4 13:08:04 2018
+
+@author: alexz
+"""
+
+TS2,YUM,0,Action.buy,0,129,81.34
+
+TS3,ABMD,0,Action.buy,0,2,381.14
+TS3,HP,2,Action.buy,1,28,65.18
+
+100H,SKX,0,Action.buy,1,24,28.88
+100H,SKX,1,Action.buy,1,27,28.79
+100H,QEP,0,Action.buy,1,59,11.99
+100H,QEP,1,Action.buy,1,66,11.93
+100H,QEP,2,Action.buy,1,74,11.87
+100H,QEP,3,Action.buy,1,84,11.81
+100H,QEP,4,Action.buy,1,94,11.76
+100H,QEP,5,Action.buy,1,106,11.7
+
+
+
+
+BON,PUMP,0,Action.buy,1,189,15.46
+BON,PUMP,1,Action.buy,1,190,15.41
+BON,PUMP,2,Action.buy,1,190,15.36
+BON,PUMP,3,Action.buy,1,191,15.31
+BON,PUMP,4,Action.buy,1,192,15.26
+
+BON,MTDR,0,Action.buy,1,110,26.67
+BON,MTDR,1,Action.buy,1,110,26.61
+BON,MTDR,2,Action.buy,1,110,26.55
+BON,MTDR,3,Action.buy,1,110,26.49
+BON,MTDR,4,Action.buy,1,111,26.43
+BON,MTDR,5,Action.buy,1,111,26.37
+BON,MTDR,6,Action.buy,1,111,26.31
+BON,MTDR,7,Action.buy,1,111,26.25
+BON,MTDR,8,Action.buy,1,112,26.19
+
+BONNH,MTDR,0,Action.buy,1,110,26.67
+BONNH,MTDR,1,Action.buy,1,110,26.61
+BONNH,MTDR,2,Action.buy,1,110,26.55
+BONNH,MTDR,3,Action.buy,1,110,26.49
+BONNH,MTDR,4,Action.buy,1,111,26.43
+BONNH,MTDR,5,Action.buy,1,111,26.37
+BONNH,MTDR,6,Action.buy,1,111,26.31
+BONNH,MTDR,7,Action.buy,1,111,26.25
+BONNH,MTDR,8,Action.buy,1,112,26.19
+
+SOR2,LBRT,1,Action.buy,1,432,20.3
+SOR2,LBRT,2,Action.buy,1,434,20.19
+
+
