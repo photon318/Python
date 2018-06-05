@@ -64,7 +64,7 @@ w.groupby('C')['C','R'].sum()
 #w[w['CODE'] == 'RSO'].loc[:,'LVL':'C']
 #    
 #    
-long_entries = pd.read_csv('entries-2018-06-01.csv')
+long_entries = pd.read_csv('entries-2018-06-04.csv')
 g_alloc =     PF_state.account_val * max_value
 
 print("Initial {:.2f}".format(g_alloc))
@@ -76,20 +76,25 @@ actual_orders = []
 total_exposed = 0
 
 for index, order in long_entries.iterrows():
-    code = order['C']
-    symbol = order['S']
-    price = order['P']
-    lvl = order['L']
-    ordertype = order['T'] # 0 - Market, 1 -Limit
-    orderside = DecodeOrderSide(order['R']) # 1 - Long, 2-Sell, 3-Short, 4-BuyToCover
-    exit_Z = order['Z'] # Size to exit
+    try:
+        code = order['C']
+        symbol = order['S']
+        price = order['P']
+        lvl = order['L']
+        ordertype = order['T'] # 0 - Market, 1 -Limit
+        orderside = DecodeOrderSide(order['R']) # 1 - Long, 2-Sell, 3-Short, 4-BuyToCover
+        exit_Z = order['Z'] # Size to exit
+        
+        sc_coef = w[w['C'] == code].iloc[lvl:,w.columns.get_loc("R")].values[0]
+        sc_total = w[w['C'] == code].iloc[lvl:,w.columns.get_loc("T")].values[0] 
+        unit_alloc = g_alloc * sc_coef 
     
-    sc_coef = w[w['C'] == code].iloc[lvl:,w.columns.get_loc("R")].values[0]
-    sc_total = w[w['C'] == code].iloc[lvl:,w.columns.get_loc("T")].values[0] 
-    unit_alloc = g_alloc * sc_coef 
-
-    key = code+'$'+symbol
-    keycsv = code+','+symbol
+        key = code+'$'+symbol
+        keycsv = code+','+symbol
+    except Exception:
+        print("exception happens")
+        print(order);
+        break
 
     if exit_Z == 0 :
         size =   int(round(unit_alloc / price, 0))      
@@ -109,7 +114,7 @@ for index, order in long_entries.iterrows():
         actual_orders.append(keycsv +','+str(lvl)+','+str(orderside)+','+str(ordertype)+',' + str(size)+','+str(price))
     else:
         size = exit_Z
-    
+
     if ordertype == 0:
         print('{0} Placing {1} Market order for {2} {3} {4}'.format(code, orderside, symbol, size, sc_coef))
         if live_trading: 
@@ -127,12 +132,12 @@ print("Total allocated {:.2f}".format(total_exposed))
 print(r_alloc)
 
 try:
-    with open('actual-2018-06-01.csv','wt') as file:
+    with open('actual-2018-06-04.csv','wt') as file:
         for line in actual_orders:
             file.write(line)
             file.write('\n')
 except Exception:
-    print("Write actual orders to file failed")
+        print("Write actual orders to file failed")
 
 
         
