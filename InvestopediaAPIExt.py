@@ -4,8 +4,6 @@ from enum import Enum
 from collections import namedtuple
 from bs4 import BeautifulSoup
 import re
-import getpass
-import pandas as pd
 
 
 Status = namedtuple("Status", "account_val buying_power cash annual_return")
@@ -169,53 +167,6 @@ class Account:
             shorted=shorted
         )
 
-
- 
-    def get_last_historicaltrades_pagenumber(self):
-        response = self.fetch('/simulator/trade/tradeoverview.aspx')
-        soup = BeautifulSoup(response.content, "html.parser")
-
-        # Case: No history
-        if soup.find_all(" Go to Last") is None:
-            print("Go last not found")
-            return []
-        else:
-            print("Go last detected")
-            print( soup.find_all(" Go to Last"))
-            return []
- 
-
-    def get_historical_trades(self):
-        response = self.fetch('/simulator/trade/tradeoverview.aspx')
-        soup = BeautifulSoup(response.content, "html.parser")
-
-        # Case: No history
-        if soup.find("table", class_="table1 bdr1 zebra") is None:
-            return []
-    
-
-    
-        historcial_trades_table = soup.find("table", class_="table1 bdr1 zebra").find("tbody")
-        historical_trades_list = historcial_trades_table.find_all("tr")
-
-#        historical_trades_raw = []
-#        for historical_trade in historical_trades_list:
-#            trade_info_list = historcial_trades_table.find_all("td")
-#            historical_trades_raw.append([i.getText() for i in trade_info_list][,])
-#
-#        open_trades = []
-#        for raw_data in open_trades_raw:
-#            trade_obj = Trade(
-#                date_time=raw_data[0],
-#                description=raw_data[1],
-#                symbol=raw_data[2],
-#                quantity=int(raw_data[3])
-#            )
-#            open_trades.append(trade_obj)
-#
-        return historical_trades_list
-        
-        
     def get_open_trades(self):
         """
         Return a list of Trade objects that represent open trades (orders
@@ -309,27 +260,3 @@ def get_quote(symbol):
     except:
         return False
     return float(quote)
-
-
-
-
-password = getpass.getpass(prompt = 'Investopedia account password:')
-print('Logging in.....')
-client = Account("photon318@gmail.com", password)
-
-PF_state = client.get_historical_trades()
-btn = client.get_last_historicaltrades_pagenumber()
-
-#
-#portfolio = client.get_current_securities()
-#
-#open_trades = client.get_open_trades()
-#for open_trade in open_trades:
-#    print("{0} {1} {2} {3} {4}".format(
-#            open_trade.date_time, 
-#            open_trade.description, 
-#            open_trade.symbol, 
-#            open_trade.quantity, 
-#            get_quote(open_trade.symbol)
-#            ))
-
