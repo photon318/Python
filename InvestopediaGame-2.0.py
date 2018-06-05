@@ -58,7 +58,7 @@ def print_portfolio_section (securities, metrics, isShort) :
 
         prev_close_date = datetime.now().date() - timedelta(days=days_offsets[datetime.now().date().weekday()])
     
-        c(prev_close_date)[ws_ref == prev_close_date]
+#        c(prev_close_date)[ws_ref == prev_close_date]
         
         c[c['ws_ref'] == prev_close_date]
         
