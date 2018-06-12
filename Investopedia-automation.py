@@ -5,10 +5,11 @@ Created on Wed Oct 11 18:47:52 2017
 @author: alexz
 """
 
-#import sys
 #import msvcrt
 import getpass
 import pandas as pd
+import sys
+import getopt
 from InvestopediaApi import ita
 
 class PortfolioMetrics:
@@ -32,6 +33,53 @@ def DecodeOrderSide(side_code):
         return 0
 
 
+live_trading  = False
+max_value  = 0.02
+entries_file = 'entries.csv'
+trades_log_file = 'actual.csv'
+
+try:
+    opts, args = getopt.getopt(sys.argv[1:], "til", ["live-trading=", "entries-file=", "log-file="])
+except getopt.GetoptError:
+    print("Usage --Live-trading=True|False --Input-file=<file>  --Output-file=<file>" );
+#
+#
+#print(opts)
+#print(args)
+
+for opt, arg in opts:
+    if opt in ("-t", "--live-trading"):
+        if (arg == 'True' ):
+            live_trading = True
+        else:
+            live_trading  = False
+    elif opt in ("-i", "--entries-file"):
+        entries_file = arg
+    elif opt in ("-l", "--log-file"):
+        trades_log_file = arg
+
+print ("Live trading mode: "+str(live_trading))   
+print ("Entries commands:" + entries_file)
+print ("Log results to:" + trades_log_file)
+        
+        
+#        #        outputfile = arg
+## 
+##    print 'Input file is "', inputfile
+##   print 'Output file is "', outputfile
+#      
+#    
+##if len(sys.argv) > 1  :
+###    for arg in sys.argv:
+###        print(arg)   
+##    if (sys.argv[1] == '--live-trading=True'):
+##        live_trading  = True
+##    else:
+##        live_trading = False
+#
+#sys.exit(0)
+
+
 password = getpass.getpass(prompt = 'Investopedia account password:')
 print('Logging in.....')
 client = ita.Account("photon318@gmail.com", password)
@@ -53,8 +101,7 @@ PF = PortfolioMetrics();
 #
 
 
-live_trading  = True
-max_value  = 0.02
+
     
 w = pd.read_csv('weights.csv', )
 w.groupby('C')['C','R'].sum()
@@ -64,7 +111,12 @@ w.groupby('C')['C','R'].sum()
 #w[w['CODE'] == 'RSO'].loc[:,'LVL':'C']
 #    
 #    
-long_entries = pd.read_csv('entries-2018-06-05e.csv')
+try:
+    long_entries = pd.read_csv(entries_file)
+except:
+    print("File parsing error")
+    sys.exit(2)
+    
 g_alloc =     PF_state.account_val * max_value
 
 print("Initial {:.2f}".format(g_alloc))
@@ -133,7 +185,7 @@ print("Total allocated {:.2f}".format(total_exposed))
 print(r_alloc)
 
 try:
-    with open('actual-2018-06-05e.csv','wt') as file:
+    with open(trades_log_file,'wt') as file:
         for line in actual_orders:
             file.write(line)
             file.write('\n')
