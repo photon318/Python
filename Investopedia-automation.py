@@ -35,17 +35,17 @@ def DecodeOrderSide(side_code):
 
 live_trading  = False
 max_value  = 0.02
-entries_file = 'entries.csv'
-trades_log_file = 'actual.csv'
+entries_file = ''
+trades_log_file = ''
 
 try:
-    opts, args = getopt.getopt(sys.argv[1:], "til", ["live-trading=", "entries-file=", "log-file="])
+    opts, args = getopt.getopt(sys.argv[1:], "til", ["live-trading=", "entries=", "log-file="])
 except getopt.GetoptError:
-    print("Usage --Live-trading=True|False --Input-file=<file>  --Output-file=<file>" );
-#
-#
-#print(opts)
-#print(args)
+    print("Usage python Investpedia-automation.py --live-trading=True|False")
+    print("--entries=<file.csv>" )
+    print("--log-file=<file.csv>" )
+    sys.exit(0)
+
 
 for opt, arg in opts:
     if opt in ("-t", "--live-trading"):
@@ -53,31 +53,41 @@ for opt, arg in opts:
             live_trading = True
         else:
             live_trading  = False
-    elif opt in ("-i", "--entries-file"):
+    elif opt in ("-i", "--entries"):
         entries_file = arg
-    elif opt in ("-l", "--log-file"):
+    elif opt in ("-l", "--log"):
         trades_log_file = arg
 
 print ("Live trading mode: "+str(live_trading))   
 print ("Entries commands:" + entries_file)
 print ("Log results to:" + trades_log_file)
+
+if trades_log_file == '' :
+    print("ATTENTION! Log file is not specified, results will not be recorded!")
         
         
-#        #        outputfile = arg
-## 
-##    print 'Input file is "', inputfile
-##   print 'Output file is "', outputfile
-#      
-#    
-##if len(sys.argv) > 1  :
-###    for arg in sys.argv:
-###        print(arg)   
-##    if (sys.argv[1] == '--live-trading=True'):
-##        live_trading  = True
-##    else:
-##        live_trading = False
+try:    
+    w = pd.read_csv('weights.csv', )
+    print(w.groupby('C')['C','R'].sum())
+except:
+    print("W-File parsing error")
+    sys.exit(4)
+    
 #
-#sys.exit(0)
+#w[w['CODE'] == 'RSO']['C'].sum()
+#w[w['CODE'] == 'RSO'].loc[:,'LVL':'C']
+#    
+#   
+if  entries_file != '' :
+    try:
+        long_entries = pd.read_csv(entries_file)
+    except:
+        print("E-File parsing error")
+        sys.exit(2)
+else:
+        print("No entries file specified!")
+        sys.exit(3)
+    
 
 
 password = getpass.getpass(prompt = 'Investopedia account password:')
@@ -88,44 +98,16 @@ PF_state = client.get_portfolio_status()
 
 portfolio = client.get_current_securities()
 PF = PortfolioMetrics();
-#
-#open_trades = client.get_open_trades()
-#for open_trade in open_trades:
-#    print("{0} {1} {2} {3} {4}".format(
-#            open_trade.date_time, 
-#            open_trade.description, 
-#            open_trade.symbol, 
-#            open_trade.quantity, 
-#            ita.get_quote(open_trade.symbol)
-#            ))
-#
-
-
-
-    
-w = pd.read_csv('weights.csv', )
-w.groupby('C')['C','R'].sum()
-
-#
-#w[w['CODE'] == 'RSO']['C'].sum()
-#w[w['CODE'] == 'RSO'].loc[:,'LVL':'C']
-#    
-#    
-try:
-    long_entries = pd.read_csv(entries_file)
-except:
-    print("File parsing error")
-    sys.exit(2)
-    
 g_alloc =     PF_state.account_val * max_value
 
-print("Initial {:.2f}".format(g_alloc))
 
 r_alloc  = {}
 open_pos = {}
 actual_orders = []
-
 total_exposed = 0
+
+print("Initial alloc {:.2f}".format(g_alloc))
+print("Total order to place {0}".format(len(long_entries)))
 
 for index, order in long_entries.iterrows():
     try:
@@ -184,13 +166,14 @@ print("Total allocated {:.2f}".format(total_exposed))
 
 print(r_alloc)
 
-try:
-    with open(trades_log_file,'wt') as file:
-        for line in actual_orders:
-            file.write(line)
-            file.write('\n')
-except Exception:
-        print("Write actual orders to file failed")
+if trades_log_file != '' and live_trading :
+    try:
+        with open(trades_log_file,'wt') as file:
+            for line in actual_orders:
+                file.write(line)
+                file.write('\n')
+    except Exception:
+            print("Write actual orders to file failed")
 
 
         
